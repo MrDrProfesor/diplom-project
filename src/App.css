@@ -1,6 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+body{
+    background: #e9f0f6;
 }
+.header{
+    position: sticky;
+    width: 100%;
+    height: 50px;
+    background: #1b2473;
+    align-items: center;
+    display: flex;
+}
+
