@@ -1,0 +1,130 @@
+.form {
+    position: relative;
+    background: #e9f0f6;
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+
+
+.form__login {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+
+.form__title {
+    align-self: center;
+    width: auto;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 50px;
+    color: #787878;
+    margin: 17px;
+}
+
+.form__inputBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form__input {
+    background: #FFFFFF;
+    width: 509px;
+    padding: 12px 16px;
+    margin: 0 auto;
+    border: 2px solid #787878;
+    border-radius: 10px;
+    outline: none;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: bold;
+    color: #787878;
+}
+
+.form__input::placeholder {
+    color: #CCC;
+
+}
+
+.form__label {
+    position: relative;
+    margin: 24px 54px 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+    color: #787878;
+
+}
+
+.form__label::before {
+    position: absolute;
+    left: -36px;
+    top: 20px;
+    content: "*";
+}
+
+
+
+.form__button {
+    border: 4px;
+    padding: 8px 16px;
+    width: 180px;
+    height: 52px;
+    cursor: pointer;
+    margin: 28px auto;
+    background: #2c3e50;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 16px;
+    color: #FFFFFF;
+
+}
+.button:focus {
+    outline: none;
+}
+/*.form__error {*/
+/*    position: relative;*/
+/*    opacity: 0;*/
+/*    left: 45px;*/
+/*    font-size: 10px;*/
+/*    line-height: 16px;*/
+/*    color: #CB2424;*/
+/*    display: flex;*/
+/*}*/
+/*.form__checkbox-text{*/
+/*    position: relative;*/
+/*    right: 469px;*/
+/*    top: 25px;*/
+/*    display: flex;*/
+
+/*}*/
+
+/*.error-color {*/
+/*    color: #CB2424;*/
+/*}*/
+
+.error {
+    opacity: 1;
+}
+.error-before::before {
+    color: #CB2424;
+
+}
+.error-border {
+    border: 2px solid #CB2424;
+}

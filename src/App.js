@@ -2,39 +2,43 @@ import './App.css';
 import {Navigate, Route, Routes} from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import Main from "./pages/Main";
-import Tour from "./pages/Tour";
-import Private from "./pages/Private";
-import {createContext, useEffect, useState} from "react";
+import CardDetail from "./pages/cardDetail/CardDetail";
+import Login from "./pages/login/Login";
 import {cards} from "./database";
-import Send from "./pages/Send";
+import {createContext, useEffect, useState} from "react";
 
-export const AppContext = createContext(null)
+export const AppContext= createContext(null);
 
 function App() {
-    const [tours, setTours] = useState([])
+    const [cases, setCases] = useState([])
     const [isAuth, setIsAuth] = useState(false)
-
-    useEffect(() => {
+    useEffect(()=>{
         const response = cards
-        setTours(response)
-    }, [])
+        setCases(response)
+    },[])
+
+    if (cases.length === 0) {
+        return (
+        <div>
+            ...Loading
+        </div>
+        )
+    }
 
     return (
-        <AppContext.Provider value={{tours, setTours, isAuth, setIsAuth}}>
+        <AppContext.Provider value={{cases, setCases,isAuth, setIsAuth}}>
             <Navigation/>
+            <main>
 
-            <main style={{padding: 32}}>
-                <Routes>
-                    <Route path="/" element={<Main/>}/>
-                    <Route path="/tour/:id" element={<Tour/>}/>
-                    <Route path="/private" element={<Private/>}/>
-                    <Route path="/send/:tourId" element={<Send/>}/>
-                    <Route path="*" element={<Navigate to='/'/>}/>
-                </Routes>
+                    <Routes>
+                        <Route path = "/" element = {<Main/>}/>
+                        <Route path = "/cardDetail/:id" element = {<CardDetail/>}/>
+                        <Route path = "/Login" element = {<Login/>}/>
+                        <Route path = "*" element = {<Navigate to='/' />}/>
+                    </Routes>
             </main>
-
         </AppContext.Provider>
-    );
+    )
 }
 
 export default App;

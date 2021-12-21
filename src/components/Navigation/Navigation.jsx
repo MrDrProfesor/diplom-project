@@ -1,22 +1,28 @@
 import React, {useContext} from 'react';
-import {Link, useNavigate} from "react-router-dom";
-import {AppContext} from "../../App";
+import {useNavigate} from "react-router-dom";
 import '../../App.css';
 import Logo from '../logo.png'
+import {AppContext} from "../../App";
+
 
 const Navigation = () => {
-    const {isAuth, setIsAuth} = useContext(AppContext)
     let navigate = useNavigate();
+    const {isAuth, setIsAuth} = useContext(AppContext)
     return (
-        <header className='header'>
-            <img className="Logo" alt="главная страница" src={Logo}/>
-            <h1>Testcaser</h1>
-            <nav className='links'>
-                {/*{!isAuth && <button onClick={() => navigate(`/private`)}>Войти</button>}*/}
-                {/*{isAuth && <button onClick={() => setIsAuth(false)}>Выйти</button>}*/}
-                <Link to="/">Main</Link>
-                {/*<Link to="/tour">tour</Link>*/}
-                {/*<Link to="/private">private</Link>*/}
+        <header className="header">
+            <div className="header__title">
+                <img className="header__logo" alt="logo" src={Logo}/>
+                <h1>TestCaser</h1>
+            </div>
+            <nav className="navigate">
+
+
+                <ul  className="ul" type='none'>
+                    <button className="ul__button" onClick={() => navigate("/Main")}>На главную</button>
+                    {!isAuth && <button className="ul__button" onClick={() => navigate("/Login")}>Войти</button>}
+                    {isAuth && <button className="ul__button" onClick={() => setIsAuth(false)}>Выйти</button>}
+                </ul>
+
             </nav>
         </header>
     );

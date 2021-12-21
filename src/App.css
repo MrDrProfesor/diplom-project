@@ -4,15 +4,38 @@ body{
     height: 100vh;
 }
 .header{
-    position: sticky;
     width: 100%;
     height: 10vh ;
     background: #2c3e50;
     align-items: center;
     display: flex;
+    justify-content: space-between;
 }
 
-.Logo{
+.header__logo{
     width: auto;
     height: 100%;
+}
+.header__title{
+    display: flex;
+    height: 100%;
+    color: #e9f0f6;
+}
+
+.navigate {
+    display: flex;
+    color: #e9f0f6;
+    align-items: center;
+}
+.ul {
+    display: flex;
+    color: #e9f0f6;
+
+}
+.ul__button {
+    border: none;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    margin: 8px;
 }

@@ -1,23 +1,22 @@
-import React, {useContext, useEffect, useState} from 'react';
-import Card from "../components/Card/Card";
+import React, {useContext} from 'react';
+import Card from "./Card/Card";
 import {AppContext} from "../App";
 
-const Main = () => {
-    const {tours} = useContext(AppContext)
 
-    if (!tours.length) {
-        return  (
-            <div>...Loading</div>
-        )
-    }
+
+const Main = () => {
+    const {cases} = useContext(AppContext)
+
     return (
         <div>
             <h1>Cases</h1>
-            {tours.map((card) => {
+            {cases.map((card) => {
                 return (
-                    <Card key={card.id} card={card}/>
+                    <Card key= {card.id} card = {card}/>
                 )
-            })}
+
+            } )}
+
         </div>
     );
 };
