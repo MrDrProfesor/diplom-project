@@ -6,27 +6,51 @@
 }
 .id__detail{
     font-weight: bold;
+    border: 2px solid #d2e2ed;
+    width: fit-content;
+    background: #66267b;
+    color: #f0f0f0;
+    padding: 8px;
+    border-radius: 20px;
+
 
 }
 
 .card__detail {
-    padding: 8px;
+    padding: 16px;
     margin: 24px;
     background: #fdfdfe;
-    border-radius: 8px;
     display: block;
-    border: 1px solid #2c3e50;
+    border: 2px solid #d2e2ed;
     justify-content: flex-start;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.10);
 
 }
+.steps__detail{
+    border: 2px solid #d2e2ed;
+    height: 15vh;
 
-.card__button {
-    margin: 8px;
-    color: #e9f0f6;
-    background: #2c3e50;
-    border: none;
-    border-radius: 4px;
-    padding: 4px;
-    cursor: pointer;
+
 }
+.card__buttonToMain {
+    border: none;
+    padding: 8px 24px;
+    cursor: pointer;
+    background: #5993bc;
+    font-weight:  bold;
+    color: #fdfdfe
+}
+.card__buttonDelete{
+    border: 1px solid #b30037;
+    padding: 7px 24px;
+    cursor: pointer;
+    background: #fdfdfe;
+    font-weight:  bold;
+    color: #b30037;
+    margin-left: 8px;
+
+}
+.card-detail__ul {
+    display: flex;
+}
+

@@ -6,11 +6,13 @@ import CardDetail from "./pages/cardDetail/CardDetail";
 import Login from "./pages/login/Login";
 import {cards} from "./database";
 import {createContext, useEffect, useState} from "react";
+import Create from "./pages/Create/Create";
+import Feedback from "./pages/feedback/feedback";
 
 export const AppContext= createContext(null);
 
 function App() {
-    const [cases, setCases] = useState([])
+    const [cases, setCases] = useState(cards)
     const [isAuth, setIsAuth] = useState(false)
     useEffect(()=>{
         const response = cards
@@ -33,8 +35,12 @@ function App() {
                     <Routes>
                         <Route path = "/" element = {<Main/>}/>
                         <Route path = "/cardDetail/:id" element = {<CardDetail/>}/>
-                        <Route path = "/Login" element = {<Login/>}/>
+                        <Route path = "/login" element = {<Login/>}/>
+                        <Route path = "/create" element = {<Create/>}/>
+                        <Route path = "/feedback" element = {<Feedback/>}/>
                         <Route path = "*" element = {<Navigate to='/' />}/>
+
+
                     </Routes>
             </main>
         </AppContext.Provider>

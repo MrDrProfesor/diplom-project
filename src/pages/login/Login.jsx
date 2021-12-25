@@ -3,6 +3,7 @@ import './login.css'
 import {users} from "../../users";
 import {AppContext} from "../../App";
 import {useNavigate} from "react-router-dom";
+import GetOffer from "../getOffer/getOffer";
 
 
 const Login = () => {
@@ -11,29 +12,15 @@ const Login = () => {
     const [login, setLogin] = useState()
     const [password, setPassword] = useState()
 
-    if (isAuth === false) {
-        function submitLogin (e) {
-            e.preventDefault()
-            const currentUser = users.find(item=>item.login === login)
-            if (!currentUser) {
-                return alert ('Пользователь не существует')
-            }
 
-            if (currentUser.password !== password) {
-                return alert ('Неверный пароль')
-
-            }
-            alert ('С возвращением!')
-            setLogin('')
-            setPassword('')
-            setIsAuth (true)
-        }
+        if (!isAuth) {
         return (
+
             <div className="form">
                 <form className="form__login" onSubmit={submitLogin}>
                     <h1 className="form__title">Авторизация</h1>
                     <div className="form__inputBlock">
-                        <label className="form__label" htmlFor="login" >Login</label>
+                        <label className="form__label" htmlFor="login">Login</label>
                         <input
                             required
                             className="form__input"
@@ -58,14 +45,42 @@ const Login = () => {
                         />
                     </div>
                     <button className="form__button" type="submit">Войти</button>
+
                 </form>
             </div>
 
         )
     }
-    return (
-        <button className="ul__button" onClick={() => navigate("/Main")}>К списку кейсов</button>
-        );
-    };
+        function submitLogin (e) {
+            e.preventDefault()
 
-export default Login;
+            const currentUser = users.find(item=>item.login === login)
+            if (!currentUser) {
+                return alert ('Пользователь не существует')
+            }
+
+            if (currentUser.password !== password) {
+                return alert ('Неверный пароль')
+
+            }
+
+            alert ('С возвращением!')
+            setLogin('')
+            setPassword('')
+            setIsAuth (true)
+
+            const comment = localStorage.getItem('comment')
+            if (!comment) {
+                return navigate('/')
+            }
+
+
+        }
+        return (
+        <GetOffer/>
+        )
+
+
+    }
+
+export default Login
